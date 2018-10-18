@@ -50,7 +50,7 @@
             this.label1.Size = new System.Drawing.Size(185, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Введите строку! ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // label2
             // 
@@ -110,7 +110,6 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(268, 196);
             this.label5.TabIndex = 11;
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -147,7 +146,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Замена";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

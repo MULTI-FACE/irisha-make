@@ -23,7 +23,7 @@ namespace ТЗ
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             string name = textBox1.Text;
-            string word;
+
             int temp = 0;
             int resultat=0;
             string text="";
@@ -38,15 +38,9 @@ namespace ТЗ
                 {
                     if (mystring[i].Length == 3)
                     {
-                        word = mystring[i];
-                        for (int l = 0; l < word.Length; l++)
-                        {
-                            temp += (int)word[l];
-                        }
-                        resultat = (temp / 3);
-                        mystring[i] = Convert.ToString((char)resultat);
-                    }
-                }
+                        resultat = Simbol(ref temp, mystring, i); // Simbol - метод, который получает код символов, их среднее арифметическое и преобразует обратно
+                    }                                             // Переменные: temp - входная переменная, сумма всех кодов слова, mystring - входные данные, 
+                }                                                 // массив из слов, i - входная переменная, отвечающая за  конкретный элемент массива.
                 for (int i = 0; i < mystring.Length; i++)
                 {
                     text+=mystring[i] + " ";
@@ -63,6 +57,18 @@ namespace ТЗ
                 else
                 { Application.Restart(); }
             }
+        }
+
+        private static int Simbol(ref int temp, string[] mystring, int i)
+        {
+            int resultat;
+            for (int l = 0; l < mystring[i].Length; l++)
+            {
+                temp += (int)(mystring[i])[l];
+            }
+            resultat = (temp / 3);
+            mystring[i] = Convert.ToString((char)resultat);
+            return resultat;
         }
     }
 }
