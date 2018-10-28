@@ -38,9 +38,9 @@ namespace ТЗ
                 {
                     if (mystring[i].Length == 3)
                     {
-                        resultat = Simbol(ref temp, mystring, i); // Simbol - метод, который получает код символов, их среднее арифметическое и преобразует обратно
-                    }                                             // Переменные: temp - входная переменная, сумма всех кодов слова, mystring - входные данные, 
-                }                                                 // массив из слов, i - входная переменная, отвечающая за  конкретный элемент массива.
+                        resultat = simbol(ref temp, mystring, i); 
+                    }                                             
+                }                                                 
                 for (int i = 0; i < mystring.Length; i++)
                 {
                     text+=mystring[i] + " ";
@@ -58,8 +58,15 @@ namespace ТЗ
                 { Application.Restart(); }
             }
         }
-
-        private static int Simbol(ref int temp, string[] mystring, int i)
+        /// <summary>
+        /// Этот метод преобразует значение символа в цифровой код, после находит среднее арифметическое этих кодов и результат преобразует 
+        /// обрратно в символ.
+        /// </summary>
+        /// <param name="temp">Переменноя для записи суммы всех кодов слова</param>
+        /// <param name="mystring">Массив слов, которые вводил пользователь</param>
+        /// <param name="i">Переменная, значение которой определяет, какой элемент массива будет обработан в методе</param>
+        /// <returns>Символ после работы метода</returns>
+        private static int simbol(ref int temp, string[] mystring, int i)
         {
             int resultat;
             for (int l = 0; l < mystring[i].Length; l++)
