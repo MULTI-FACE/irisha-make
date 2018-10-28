@@ -22,42 +22,45 @@ namespace ТЗ
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            string name = textBox1.Text;
+    /*1*/   string name = textBox1.Text;//заполнение переменной name данными из текстбокса
 
             int temp = 0;
             int resultat=0;
             string text="";
             try
             {
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
+    /*2*/       if (string.IsNullOrWhiteSpace(textBox1.Text))// условие наличие пустот или пробелов
                 {
-                    throw new Exception();
-                }
-                string[] mystring = name.Split(' ');
-                for (int i = 0; i < mystring.Length; i++)
+    /*3*/            throw new Exception();//ошибка
+    /*4*/       }//завершение условия
+    /*5*/       string[] mystring = name.Split(' ');//запись в массив слов из строки
+    /*6*/       for (int i = 0; i < mystring.Length; i++)//начало цикла, условие i<mystring.Length (количество элементов в массиве)
                 {
-                    if (mystring[i].Length == 3)
+    /*7*/           if (mystring[i].Length == 3)//начало условия, mystring[i].Length==3
                     {
-                        resultat = simbol(ref temp, mystring, i); 
-                    }                                             
-                }                                                 
-                for (int i = 0; i < mystring.Length; i++)
+    /*8*/               resultat = simbol(ref temp, mystring, i); //вызов метода
+    /*9*/           }//конец условия                                             
+    /*10*/      }//конец цикла                                                 
+    /*11*/      for (int i = 0; i < mystring.Length; i++)//начало цикла, условие i < mystring.Length (колличество элементов в массиве)
                 {
-                    text+=mystring[i] + " ";
-                }
-                label5.Text = text;
+    /*12*/          text+=mystring[i] + " ";//запись элементов в строку через пробел
+    /*13*/      }//конец цикла
+    /*14*/      label5.Text = text;//вывод результата в label
             }
             catch (Exception) 
             {
-                DialogResult result = MessageBox.Show("Пустое значение и пробелы недопустимы! Попробуйте снова!", "Ошибка", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
+                DialogResult result = MessageBox.Show("Пустое значение и пробелы недопустимы! " +
+    /*15*/          "Попробуйте снова!", "Ошибка", MessageBoxButtons.YesNo);//вывод ошибки на экран
+    /*16*/      if (result == DialogResult.No)//условие нажатие на кнопку No
                 {
-                    Application.Exit();
-                }
-                else
-                { Application.Restart(); }
+    /*17*/          Application.Exit();//завершение приложения
+    /*18*/      }//конец условия
+    /*19*/      else//условие нажатия на кнопку Yes
+                {
+    /*20*/          Application.Restart();//повторные запуск приложения
+    /*21*/      }//конец условия
             }
-        }
+        } 
         /// <summary>
         /// Этот метод преобразует значение символа в цифровой код, после находит среднее арифметическое этих кодов и результат преобразует 
         /// обрратно в символ.
@@ -69,13 +72,13 @@ namespace ТЗ
         private static int simbol(ref int temp, string[] mystring, int i)
         {
             int resultat;
-            for (int l = 0; l < mystring[i].Length; l++)
+    /*22*/  for (int l = 0; l < mystring[i].Length; l++)//начало цикла, условие  
             {
-                temp += (int)(mystring[i])[l];
-            }
-            resultat = (temp / 3);
-            mystring[i] = Convert.ToString((char)resultat);
-            return resultat;
+    /*23*/      temp += (int)(mystring[i])[l];//преобразование символа в его код и суммирование результатов
+    /*24*/  }//конец цикла
+    /*25*/  resultat = (temp / 3);//деление результата на три, для нахождение среднего арифметического 
+    /*26*/  mystring[i] = Convert.ToString((char)resultat);//конвертация кода в символ
+    /*27*/  return resultat;//возвращение результата
         }
     }
 }
