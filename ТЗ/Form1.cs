@@ -25,7 +25,7 @@ namespace ТЗ
     /*1*/   string name = textBox1.Text;//заполнение переменной name данными из текстбокса
 
             int temp = 0;
-            int resultat=0;
+            string res="";
             string text="";
             try
             {
@@ -38,7 +38,7 @@ namespace ТЗ
                 {
     /*7*/           if (mystring[i].Length == 3)//начало условия, mystring[i].Length==3
                     {
-    /*8*/               resultat = simbol(ref temp, mystring, i); //вызов метода
+    /*8*/               res = simbol(ref temp, mystring, i); //вызов метода
     /*9*/           }//конец условия                                             
     /*10*/      }//конец цикла                                                 
     /*11*/      for (int i = 0; i < mystring.Length; i++)//начало цикла, условие i < mystring.Length (колличество элементов в массиве)
@@ -69,7 +69,7 @@ namespace ТЗ
         /// <param name="mystring">Массив слов, которые вводил пользователь</param>
         /// <param name="i">Переменная, значение которой определяет, какой элемент массива будет обработан в методе</param>
         /// <returns>Символ после работы метода</returns>
-        private static int simbol(ref int temp, string[] mystring, int i)
+        private static string simbol(ref int temp, string[] mystring, int i)
         {
             int resultat;
     /*22*/  for (int l = 0; l < mystring[i].Length; l++)//начало цикла, условие  
@@ -78,7 +78,7 @@ namespace ТЗ
     /*24*/  }//конец цикла
     /*25*/  resultat = (temp / 3);//деление результата на три, для нахождение среднего арифметического 
     /*26*/  mystring[i] = Convert.ToString((char)resultat);//конвертация кода в символ
-    /*27*/  return resultat;//возвращение резулт
+    /*27*/  return mystring[i];//возвращение резулт
         }
     }
 }
